@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    {% include 'google_fonts.html' %}
+    {% include 'styles_css.html' %}
+
+
+
+     <title>{% block title %}Covert | Messanger{% endblock %}</title>
+  </head>
+  <body>
+
+    
+
+    {% include 'js.html' %}
+  
+
+   <div class="container">
+    <header>
+       
+        {% block content %}
+
+        {% endblock %}
+          
+  </div>
+
+  </body>
+</html>

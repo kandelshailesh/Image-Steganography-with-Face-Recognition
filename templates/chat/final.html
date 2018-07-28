@@ -1,0 +1,786 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<!-- font -->
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Delius|East+Sea+Dokdo|Fondamento|Rancho" rel="stylesheet"> 
+
+<!-- style -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+
+
+   
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Fontawesome CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="owl.carousel.min.css">
+<!-- !--Import Google Icon Font--> 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" media="screen,projection" >
+
+      <!--Let browser know website is optimized for mobile-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+      <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap Js CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/test/js/testjs.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="{% static 'js/chat.js' %}"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script  src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>   
+<style>
+body::-webkit-scrollbar
+{
+    width:10px;
+}
+body::-webkit-scrollbar-thumb
+{
+    border-radius: 5px;
+    background:rgba(0,0,0,0.1);
+}
+.chatlogs::-webkit-scrollbar
+{
+    width:10px;
+}
+#listcontacts::-webkit-scrollbar
+{
+    width:10px;
+}
+.chatlogs::-webkit-scrollbar-thumb
+{
+    border-radius: 5px;
+    background:rgba(0,0,0,0.1);
+}
+#listcontacts::-webkit-scrollbar-thumb
+{
+    border-radius: 5px;
+    background:rgba(0,0,0,0.1);
+}
+#other-people::-webkit-scrollbar
+{
+    width:10px;
+}
+#other-people::-webkit-scrollbar-thumb
+{
+    border-radius: 5px;
+    background:rgba(0,0,0,0.1);
+}
+#contact:hover
+{
+    background-color:#EEE;
+}
+.dialog:hover
+{
+    background-color: #EEE;
+}
+    body{
+        overflow-x:hidden;
+    }
+
+    .scrolling
+    {   
+        max-height: 500px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+   /* .scrolling:hover
+    {   
+        overflow-y: scroll;
+    }*/
+    .scrolling::-webkit-scrollbar
+{
+    width:10px;
+}
+.scrolling::-webkit-scrollbar-thumb
+{
+    border-radius: 5px;
+    background:rgba(0,0,0,0.1);
+}
+
+/*body{background:#e4e4e4;}*/
+a:hover{text-decoration: none;}
+li{list-style: none;}
+.btn-univhub{
+    background: #fff;
+    border: 1px solid #1abc9c;
+    border-radius: 25px;
+    padding: 6px 22px;
+    color: #1abc9c;
+}
+.btn-univhub:hover,
+.btn-univhub:focus{
+    background: #1abc9c;
+    border: 1px solid #1abc9c;
+    color: #fff;
+}
+button:focus{outline: 0 !important;}
+/*::-webkit-scrollbar {
+    width: 1.1em;
+}
+::-webkit-scrollbar-track {
+    border: 1px solid #d0d1d2;
+    background: rgb(238, 235, 235);
+}*/
+
+
+/* Common CSS */
+
+
+/* Navbar */
+.navbar-univhub{z-index:999;width:100%;margin: 0;height:60px;min-height:60px;background: #fff;border-radius: 0px;border:none; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+.navbar-univhub li > a{font-weight: 600;color: #707171;position: relative;line-height: 0;line-height: 30px;}
+.navbar-univhub li > a > span{position: absolute;right: -13px;top: 14px;background: #ff777c;color: #fff;border-radius: 50%;height: 12px;width: 12px;line-height: normal;text-align: center;font-size: 9px;padding-top: 1px;}
+.navbar-univhub .nav>li>a{border-bottom: 2px solid transparent;}
+.navbar-univhub .nav>li>a:focus, .navbar-univhub .nav>li>a:hover{background: none;border-bottom: 2px solid #1abc9c;color: #262626;}
+.navbar-univhub .navbar-nav>li>a{padding: 0px;padding-top:14px;margin: 0 20px;}
+nav.navbar .autobot-image{height: 25px;border:2px solid #1abc9c;border-radius: 50%;}
+#navbar-univhub-container{overflow-x: hidden;background: #fff;border-top:1px solid #d5d0d0;}
+.navbar-univhub .navbar-brand{height: 60px;padding: 15px;padding-bottom:0;padding-top: 9px;border-right: 1px solid #d5d0d0;text-align: center;}
+.navbar-univhub .navbar-brand span{font-size: 7px;color: #1abc9c;font-weight: 600;position: relative;top: -4px;display: block;}
+.navbar-univhub .navbar-brand img{margin-left: 50%;transform: translateX(-50%);}
+.navbar-toggle .icon-bar{background: #1bac9c;}
+.navbar-univhub .navbar-form{margin: 0;padding: 0;}
+.navbar-univhub .navbar-form .univhub-search-btn{width:30px;border-radius: 0px;height: 30px;border: none;margin-top: 14px;position: absolute;top:0;right:20px;border-radius: 25px;background: #fff url('search-icon.png') no-repeat;background-size: 30px;cursor: pointer;}
+.navbar-univhub .navbar-nav>.active>a, .navbar-univhub .navbar-nav>.open>a{border-bottom: 2px solid #1abc9c;}
+.navbar-univhub .btn-univhub{padding: 4px 22px;margin: 0 5px;margin-top: 14px;}
+.loginsignup-btns{position: absolute;right: 80px;top: 0;}
+.navbar-nav>li>.dropdown-menu{margin-top: 0px;padding: 5px;border-radius: 0px;}
+.navbar-univhub .dropdown-menu>li>a{font-size: 12px;padding: 3px 10px;border-bottom: 1px solid #e8e8e8}
+.navbar-univhub .dropdown-menu>li:last-child>a{border-bottom: none;}
+.navbar-univhub .nav .open>a, .navbar-univhub .nav .open>a:focus, .navbar-univhub .nav .open>a:hover{background: none;color: #262626;}
+.navbar-univhub .nav>li.open>a:focus, .navbar-univhub .nav>li.open>a:hover{border-color: #1abc9c;}
+
+
+/* Navbar */
+
+.no-data {
+    display: none;
+    text-align: center;
+}
+
+.no-datas {
+    display: none;
+    position:relative;
+    left:80px;
+    top:4px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+
+/* Prep Classes */
+.prep-classes-contents{margin-top: 85px;}
+
+.prep-classes-tabs .nav-tabs{box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12);margin-bottom: 25px;}
+.prep-classes-tabs .nav-tabs>li>a{border:none;margin: 0;color: #868686;font-weight: 600;border-radius: 0px;border-left: 3px solid transparent;}
+.prep-classes-tabs .nav-tabs>li>a:hover{border-left: 3px solid transparent;border-left: 3px solid #1abc9c;background: #f2fdf9;}
+.prep-classes-tabs .nav-tabs>li.active>a, .course-details-tabs .nav-tabs>li.active>a:focus, .course-details-tabs .prep-classes-contents .nav-tabs>li.active>a:hover{border:none;background: #eee;border-left: 3px solid #1abc9c;background: #f2fdf9;}
+.prep-classes-contents .classes{padding:0;padding:0 30px;}
+.prep-classes-contents .classes li{border-bottom: 1px solid #d8d8d8;padding-bottom:30px;padding-top:30px;}
+.prep-classes-contents .classes h3{color:#868686;text-align:center;margin-bottom:30px;font-weight: 600;}
+.prep-classes-contents .prep-classes-contents.classes li > a{padding:20px;border-bottom:1px solid #cfcece;margin:0 5px;}
+.prep-classes-contents .classes .classes-image img{height:75px;margin-top:20px;margin-right:20px;}
+.prep-classes-contents .classes .classes-image{margin-right:20px;}
+.prep-classes-contents .classes .classes-details-title{font-size:16px;font-weight:600;margin-bottom:8px;color:#868686;}
+.prep-classes-contents .classes .classes-details-text{font-size:14px;color:#686666;}
+.prep-classes-contents .classes .classes-details-location{font-size:14px;color:#686666;}
+.prep-classes-contents .classes .noti-details-btns{width:auto;}
+.prep-classes-contents .classes .noti-details-btns .btn{padding:9px 26px;font-size:15px;display:block;}
+.prep-classes-contents .classes .noti-details-btns span{margin:0;margin-bottom:10px;float: left;}
+.prep-classes-contents .classes .noti-details-btns del, .classes .noti-details-btns b{display:block;color:#686666;}
+#class-register img{height: 80px !important;}
+#class-register .modal-header{padding:25px 15px;}
+#class-register .modal-body{padding:40px 15px;}
+#class-register .modal-content{border-radius:0px;}
+#class-register a{color:#686666;}
+#class-register a:hover{color:#1abc9c;}
+
+
+ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: white; }
+#hello,#hello1,#hello2,#hello3
+{
+width:10px; height:10px; border-radius:50%; background-color:#grey;position:relative;
+}
+li{ float:left;}
+
+</style>
+
+</head>
+{% load staticfiles %}
+<!-- <body onunload="changestatus({{ request.user.id }})">  -->
+<body>
+    
+<div style="background-color:blue; box-shadow: 2px 2px #090;" class="row">
+<div  class="col-sm-3"></div>
+<div  class="col-sm-3">
+    <input placeholder="Search Friends" style="position:relative;  border-radius:5px; height:25px; top:10px; background-color:white;" id="dSuggest" type="text" /> 
+    <div style="position: absolute; background-color:white; border:1px solid #EEE; left:9px; top:36px; height:200px; width:90%; overflow-y: scroll; display: none; z-index: 2;" id="listcontacts"></div>
+    <!-- <div style=" background-color:white; border:1px solid #EEE; margin-left:0px; margin-top:45px; height:200px; width:90%; overflow-y: scroll; display: none;" id="listcontacts"></div> -->
+
+</div>
+
+ {% for legals in legal %}
+          {% if legals.image_added == '0' %}
+    <div class="col-sm-2">
+            <!-- <button onclick="location.href='profile/'">Profile</button> -->
+            <img style="position:relative; width:40px; top:2px; height:40px; align-self: center; padding:8px; border-radius:50%; " src="{{ user.profile.profile_pic.url }}">
+            <a style="position:relative; color:white; text-align: center; top:-9px; width:40px; height:30px; font-size: 22px; " href="{% url 'view_profile' request.user.username %}" role="button">{{ user.username }} </a> 
+        
+    </div>
+    <div class="col-sm-2">
+          <button style="background-color:blue; font-size:22px; color: white;" id='addimage' onclick="addimage('{{request.user.id}}')"> Add Image</button>
+    </div>
+    <div class="col-sm-1 " style="background-color:blue;"  >
+        <!-- <ul class="nav navbar-nav"> collapse navbar-collapse id="navbar-univhub-container" --> 
+            <li class="active dropdown"><a style="position:relative; color:white; top:12px; width:40px; height:30px; font-size: 22px; " href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-haspopup="true" aria-expanded="false">Friends<span>1</span></a>
+                <ul class="dropdown-menu">
+                    <li><b>Received Requests</b></li>
+                    <hr>
+                    {% for r in f_r_r|slice:":3" %}
+                    <li class="clearfix">
+                        <div class="noti-details pull-left">
+                            <div class="classes-details-title">{{r.from_user}}</div>
+                        </div>
+                        <div class="noti-details-btns  pull-right text-center">
+                                    <span><a href="{% url 'friendship_accept'  r.id %}"><button type="button"
+                                                                                                class="btn btn-success">Accept</button></a></span>
+                            <span><a href="{% url 'friendship_reject'  r.id %}"><button type="button"
+                                                                                        class="btn btn-default">Reject</button></a></span>
+
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li>Sorry, No received requests :)</li>
+                    {% endfor %}
+                    <hr>
+                    <a href="{% url 'test_friendship_view_friends' %}">See All</a>
+                </ul>
+            </li>
+            <!-- <li><a href="#">A</a></li>
+            <li><a href="#">B <img class="autobot-image" src="autobot.png" alt=""></a></li> -->
+            
+        </ul>
+
+    </div>
+    <!-- <div class="col-sm-1">
+          <button id='addimage' onclick="location.href='friendship/test'"> Friends</button>
+    </div> -->
+    <div class="col-sm-1">
+    <a style="position:relative; color:white; padding:10px; top:10px; width:40px; height:30px; font-size: 22px; " href="{% url 'logout' %}"">Logout</a>
+    </div>
+{% else %}
+<div class="col-sm-1"></div>
+<div class="col-sm-1"></div>
+<div class="col-sm-2">
+            <!-- <button onclick="location.href='profile/'">Profile</button> -->
+            <img style="position:relative; width:40px; top:2px; height:40px; align-self: center; padding:8px; border-radius:50%; " src="{{ user.profile.profile_pic.url }}">
+            <a style="position:relative; color:white; text-align: center; top:-9px; width:40px; height:30px; font-size: 22px; " href="{% url 'view_profile' request.user.username %}" role="button">{{ user.username }} </a> 
+        
+    </div>
+    <div class="col-sm-1 " style="background-color:blue;"  >
+        <!-- <ul class="nav navbar-nav"> collapse navbar-collapse id="navbar-univhub-container" --> 
+            <li class="active dropdown"><a style="position:relative; color:white; top:12px; width:40px; height:30px; font-size: 22px; " href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-haspopup="true" aria-expanded="false">Friends<span>1</span></a>
+                <ul class="dropdown-menu">
+                    <li><b>Received Requests</b></li>
+                    <hr>
+                    {% for r in f_r_r|slice:":3" %}
+                    <li class="clearfix">
+                        <div class="noti-details pull-left">
+                            <div class="classes-details-title">{{r.from_user}}</div>
+                        </div>
+                        <div class="noti-details-btns  pull-right text-center">
+                                    <span><a href="{% url 'friendship_accept'  r.id %}"><button type="button"
+                                                                                                class="btn btn-success">Accept</button></a></span>
+                            <span><a href="{% url 'friendship_reject'  r.id %}"><button type="button"
+                                                                                        class="btn btn-default">Reject</button></a></span>
+
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li>Sorry, No received requests :)</li>
+                    {% endfor %}
+                    <hr>
+                    <a href="{% url 'test_friendship_view_friends' %}">See All</a>
+                </ul>
+            </li>
+            <!-- <li><a href="#">A</a></li>
+            <li><a href="#">B <img class="autobot-image" src="autobot.png" alt=""></a></li> -->
+            
+        </ul>
+
+    </div>
+    <!-- <div class="col-sm-1">
+          <button id='addimage' onclick="location.href='friendship/test'"> Friends</button>
+    </div> -->
+    <div class="col-sm-1">
+    <a style="position:relative; color:white; padding:10px; top:10px; width:40px; height:30px; font-size: 22px; " href="{% url 'logout' %}"">Logout</a>
+    </div>
+<!-- <div class="col-sm-2">
+   
+            <img style="position:relative; width:40px; top:2px; height:40px; align-self: center; padding:8px; border-radius:50%; " src="{{ user.profile.profile_pic.url }}">
+            <a style="position:relative; text-align: center; top:-7px; width:40px; height:30px; font-size: 22px; " href="{% url 'view_profile' request.user.username %}" role="button">{{ user.username }} </a> 
+    </div>
+    <div class="col-sm-1 collapse navbar-collapse" style="background-color:#EFE;" id="navbar-univhub-container">
+        <ul class="nav navbar-nav">
+            <li class="active dropdown"><a href="#" style=" padding:10px;  font-size: 22px; " class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Friends<span></span></a>
+                <ul class="dropdown-menu">
+                    <li><b>Received Requests</b></li>
+                    <hr>
+                    {% for r in f_r_r|slice:":3" %}
+                    <li class="clearfix">
+                        <div class="noti-details pull-left">
+                            <div class="classes-details-title">{{r.from_user}}</div>
+                        </div>
+                        <div class="noti-details-btns  pull-right text-center">
+                                    <span><a href="{% url 'friendship_accept'  r.id %}"><button type="button"
+                                                                                                class="btn btn-success">Accept</button></a></span>
+                            <span><a href="{% url 'friendship_reject'  r.id %}"><button type="button"
+                                                                                        class="btn btn-default">Reject</button></a></span>
+
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li>Sorry, No received requests :)</li>
+                    {% endfor %}
+                    <hr>
+                    <a href="{% url 'test_friendship_view_friends' %}">See All</a>
+                </ul>
+            </li>
+            
+        </ul>
+
+    </div>
+     
+    <div class="col-sm-1">
+    <a href="{% url 'logout' %}" style="position:relative; padding:10px; top:10px; width:40px; height:30px; font-size: 22px; ">Logout</a>
+</div> -->
+          {% endif %}
+
+          {% endfor %}
+</div>
+
+
+
+    
+<div class="row" style="width:100%; margin-left:1px; height:600px;">
+	<div style="outline:3px solid white; margin: 0px;    max-height:600px; " class="col-sm-2">
+
+		<div id="search">
+			<!-- <label for=""><i class="fa fa-search" aria-hidden="true"></i></label> -->
+			<!-- <input id="dSuggest" style="height:30px; margin-top:5px;  width:85%; border-radius: 6px;" type="text" placeholder="Search contacts..." /> -->
+            <input id="myInput" class="form-control" style="height:30px; margin-top:5px;  width:85%; border-radius: 6px;" type="text" placeholder="Search contacts..." />
+            <!-- <div style="position:absolute;  border:1px solid #EEE; left:0px; top:40px; height:200px; width:100%; overflow-y: scroll; display: none;" id="listcontacts"></div> -->
+		</div>
+        <br>
+        <div class="scrolling">
+            <div style="position:relative; left:-15px;" class="no-data">No data</div>
+		{% for x,y in users %}
+                {% if y is not None %}
+				<div id='{{x.id}}' class="dialog" style=" height:70px; border-bottom: 1px solid #EEE;">
+                <!-- <a style="text-decoration:none; color:black; " href="{% url 'chat' x.id %}" id="user{{ x.id }}"><img style="width:30px; height:30px; border-radius:10px; " src="https://frontend-1.adjust.com/new-assets/images/site-images/interface/user.svg">  -->
+                <a style="text-decoration:none; color:black; " href="{% url 'chat' x.id %}" id="user{{ x.id }}"><img style="width:30px; height:30px; top:1px;  border-radius:50%; " src="{{ x.profile.profile_pic.url }}"> 
+                <span class="title{{x.id}}" style="position:relative; top:-10px; font-weight: bolder;">{{ x.username }}</span>
+                <p id="message{{x.id}}" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;text-overflow:ellipsis; margin-left:30px; max-width: 90%; max-height: 20px;">{{y.message}}</p>
+                </a>
+                </div>
+
+                {% endif %}
+        {% endfor %}
+    	</div>
+	</div>
+	<div class="col-sm-8" style="outline: 2px solid #EEE;">
+		
+           
+		{% block messages %}
+
+                {% endblock %}
+
+        {% block friend %}
+
+             {% endblock %}
+               {% block profile %}
+            {% endblock %}
+            
+        <div> 
+		<form id="chat-box" style="margin-left: 0px;" class="form-group {% block hide %}hide{% endblock %}" method="post">
+                {% csrf_token %}
+
+                            {% load staticfiles %}
+                            <input  style="width:93%; height:35px; padding:5px;margin-left:-13px;" id="id_message" name="message" type="text" placeholder="Type your message..">
+                            <!-- <input type='file' onchange="readURL(this);" /> -->
+                        <button type="submit" style=" display:inline; width:6%; height:35px;" type="button" class="btn btn-default">
+                            <span style="color:blue;" class="glyphicon glyphicon-send"></span> 
+                    </button>
+                        
+            </form>
+            
+
+             <button  style="display:hidden; width:50px; height:50px; border-radius:25px; background-color:lightblue; font-size:20px; color:black;" onclick="encode()" class=" encode {% block show %} hide {% endblock %}" id="encode"> E</button>
+             
+<span style="display:none;" class="fa-stack fa-2x {% block shows %} hide {% endblock %}">
+  <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
+  <strong style="margin-left:20px;" class="fa-stack-3x spin-text">E</strong>
+</span>
+             {% csrf_token %}
+             {% load staticfiles %}
+             <img id="blah" style="display:hidden;" />
+	
+</div>
+    </div>
+	<div class="col-sm-2" style="border-right:2px solid black; height:600px; ">
+        
+        <label style="  width:100%; font-size: 15px; padding:5px; height:35px; border-bottom:2px solid #EEE; text-align:center; color:#0074D9;"> Friends
+        </label>
+        <div id="scrolls" class="row" >
+            <div class="no-datas">Not found </div>
+        {% for a,b,c in online_friend %}
+        {% if b.status == '1' %}
+        <div id='{{a.id}}' style=" position:relative; width:100%; left:10px; height:50px; border-bottom: 1px solid #EEE;">
+                <a style="position:relative; text-decoration:none; color:black; top:4px; left:10px; " href="{% url 'chat' a.id %}" id="users{{ a.id }}"><img style="width:40px; padding:4px; height:40px; border-radius:50%; border: 2px solid green;"  src="{% static c.profile_pic %}"> 
+                <span class="titles{{a.id}}" style="position:relative; top:-10px; font-weight: bolder;">{{ a.username }}
+                </span>
+                </a>
+                </div>
+        {% else %}
+        <div id='{{a.id}}' style=" position:relative; width:100%; left:10px; height:45px; border-bottom: 1px solid #EEE;">
+                <a style="position:relative; text-decoration:none; color:black; top:4px; left:10px; " href="{% url 'chat' a.id %}" id="users{{ a.id }}"><img style="width:40px; padding:4px; height:40px; border-radius:50%; border: 2px solid grey; " src=" {% static c.profile_pic %}"> 
+                <span class="titles{{a.id}}" style="position:relative; top:-15px; font-weight: bolder;">{{ a.username }}
+        </span>
+    </a>
+</div>
+        {% endif %}
+        {% endfor %}
+<input  placeholder="        Search Friends" type="text" style=" width:219px; height:30px; position:fixed; top:610px; border:2px solid #EFF;  border-top-color:#0FE;" id="mySearch" class="form-control">      
+
+</div>
+</div>
+</div>
+
+ {% load staticfiles %}
+    <script src="{% static 'js/chat.js' %}"></script>
+    <script>
+        sender_id = "{{ receiver.id }}";
+        receiver_id = "{{ request.user.id }}";
+    //     function readURL(input) {
+    //         if (input.files && input.files[0]) {
+    //         var reader = new FileReader();
+
+    //         reader.onload = function (e) {
+    //             $('#blah')
+    //                 .attr('src', e.target.result)
+    //                 .width(150)
+    //                 .height(200);
+    //         };
+
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
+    function addimage(username1)
+    {
+       $.ajax({
+            url:'/addimage',
+            type:'post', 
+            data: {
+                id1:username1,
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            dataType:'text',
+            success:function(data)
+            {
+            alert(data)
+            if(data>10)
+            {
+                document.getElementById('addimage').remove();
+            }
+            console.log(data) 
+    }
+})
+   }
+     
+    function encode()
+    {
+        
+            var mes= $('#id_message').val();
+            if(mes.length>0){
+            console.log(mes);
+            $('span .fa-stack ').show();
+            $.ajax({
+            url:'/encode',
+            type:'post', 
+            data: { message:mes,
+                receiver:sender_id,
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            dataType:'text',
+            success:function(data)
+            {
+            document.getElementById('id_message').value=data;
+            document.getElementById('id_message').disabled="disabled";
+            console.log(data)
+            $('span .fa-stack').hide();
+
+            $('#blah')
+                .attr('src','/static/second/'+data)
+                .width(100)
+                .height(100);
+            }
+            // alert("SHai");
+            })
+        }
+    }
+
+    $(function () {
+            scrolltoend();
+            $('#chat-box').on('submit', function (event) {
+                event.preventDefault();
+                var message = $('#id_message');
+                // $.ajax({
+                //     url:'/crypto',
+                //     type:'post',
+                //     dataType:'json',
+                //     data:{
+                //         message:message.val(),
+                //         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                //     },
+                //     success:function(data)
+                //     {
+                //         send('{{ request.user.username }}', '{{ receiver.username }}', data.token);
+                //         // var obj= json.parse(data)
+                //         alert(data.token);
+                //         console.log(data);
+                //     }
+                // })
+                g = document.createElement('li');
+                g.id="hello";
+                g1= document.createElement('li');
+                g1.id="hello1";
+                g2 = document.createElement('li');
+                g2.id="hello2";
+  
+                g3 = document.createElement('li');
+                g3.id="hello3";
+                 $("#search").append(g,g1,g2,g3);
+  
+                
+                setInterval(frame,10);
+               
+  
+                $('#id_message').prop("disabled",false);
+                var im=document.getElementById('blah');
+                im.style.display="none";
+                send('{{ request.user.username }}', '{{ receiver.username }}', message.val());
+                message.val('');
+            })
+        })
+var pos = 0;
+function frame() {
+                     if (pos == 200) {
+                            del();
+                    } else {
+                    pos++; 
+                    g.style.left = (pos) + 'px'; 
+                    g1.style.left =(pos+2) + 'px'; 
+                    g2.style.left =(pos+5) + 'px'; 
+                    g3.style.left =(pos+7)+ 'px'; 
+    }
+  }
+
+function del()
+  {
+  g.remove()
+  g1.remove()
+g2.remove()
+g3.remove()
+}
+
+$('#dSuggest').on("keyup", function() {
+     $('#listcontacts').text("");
+   var a=$('#dSuggest').val();
+   if(a !== "")
+   {
+   $.ajax({
+    url:'/listcontacts',
+    type:'post',
+    data:{name:a,csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()},
+    dataType:'text',
+    success:function(data){
+        // alert(data.length());
+        var obj=JSON.parse(data);
+
+        // alert(obj[0].username);
+
+        // alert(obj.length)
+         if (obj.length !== 0)
+        { 
+            for(var i=0 ; i<obj.length;i++)
+            {
+                // document.getElementById('contacts').innerHTML= obj[i].username;
+                // a=document.getElementById('contacts');
+                $('#listcontacts').css('display','inline-block');
+                profile= "profile/"+obj[i].username;
+                profileid="#"+obj[i].id;
+                $('#listcontacts').append("<ul><li id="+obj[i].id+"><a href="+profile+">"+obj[i].username+"</li>");
+    
+                $(profileid).css('height','30px');
+                $('#listcontacts a').css('color','black');
+                $(profileid).css('width','100%');
+                $(profileid).css('position','relative');
+                $(profileid).css('top','3px');
+                $(profileid).css('background-color','rgba(255,255,255,1)');
+                $(profileid).css ('border','1px solid #EEE');
+
+
+}
+ $('#listcontacts').append("</ul>");
+ 
+   }}})}
+   else
+   {
+    $('#listcontacts').css('display','none');
+
+   }
+    
+});
+
+
+window.onbeforeunload = function() {
+    $.ajax({
+        url:'/online',
+        type:'post',
+        dataType:'text',
+        data:{'identity':receiver_id,csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()},
+        success:function(data){
+            alert("Status changed");
+        }
+
+    })
+
+}
+
+var idleTime = 0;
+$(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 5) { 
+    // 20 minutes
+     $.ajax({
+        url:'/offline',
+        type:'post',
+        dataType:'text',
+        data:{'identity':receiver_id,csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()},
+        success:function(data){
+            alert("Status changed");
+        }
+
+    })
+
+        
+    }
+}
+
+
+// $(document).ready(function(){
+//   $("#myInput").on("keyup", function() {
+//     var value = $(this).val().toLowerCase();
+//     $(".scrolling div ").filter(function() {
+//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//     });
+//   });
+// });
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = new RegExp($(this).val(),'i');
+    $(".scrolling div").hide();
+    $(".scrolling div ").filter(function() {
+      return value.test($(this).text());}).show();
+    $('.no-data').hide();
+            if($('.scrolling div:visible').length == 0)
+            {
+                $('.no-data').show();
+            }
+    });
+  });
+// $(document).ready(function(){
+//  $("#mySearch").on("keyup", function() {
+//     var value = $(this).val().toLowerCase();
+//     $("#scrolls div ").filter(function() {
+//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//     });
+//   });
+//  });
+
+$(document).ready(function(){
+  $("#mySearch").on("keyup", function() {
+    var value = new RegExp($(this).val(),'i');
+    $("#scrolls div").hide();
+    $("#scrolls div ").filter(function() {
+      return value.test($(this).text());}).show();
+    $('.no-datas').hide();
+            if($('#scrolls div:visible').length == 0)
+            {
+                $('.no-datas').show();
+            }
+    });
+  });
+$(function () {
+    $('#user{{ receiver.id }}').addClass('active');
+// //     //Call receive function each 1 seconds to check for new messages in the database
+    setInterval(receive,5000);
+});
+
+setInterval(checkmessage,2000);
+setInterval(checknewmessage,2000);
+
+</script>
+</body>
+</html>
+

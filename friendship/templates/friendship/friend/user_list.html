@@ -1,0 +1,55 @@
+{% block content %}
+{% load friendshiptags %}
+
+{% for user in users %}
+<h1>{{ user.username }}</h1>
+{% if not user in friends %}
+
+{% if not user in fsentu %}
+<a href="{% url 'friendship_add_friend' user.username %}">add as friend</a>
+{% else %}
+<a>Friend Request Sent</a>
+{% endif %}
+
+{% endif %}
+{% endfor %}
+
+<h1>Your Friends</h1>
+{% for friend in friends %}
+<a href="{% url 'friendship_remove_friend' friend.username %}">remove friend</a>
+<h3>{{ friend.username }}</h3>
+{% endfor %}
+
+		<h2>Sent Friend requests</h2>
+		<ul>
+		{% for s_request in f_s_r %}
+			<li>{{ s_request.to_user}}</li>
+
+			<form method="post" action="{% url 'friendship_cancel'  s_request.id %}">
+{% csrf_token %}
+<input type="submit" value="Cancel Friend Request" />
+</form>
+		{% endfor %}
+		</ul>
+		<hr>
+		<h2>Received Friend requests</h2>
+
+		{% for r_request in f_r_r %}
+			<p><a href="{{ r_request.from_user.profile.get_absolute_url }}">{{ r_request.from_user }}</a></p>
+			<!--<small><a class='btn btn-primary' href="{% url 'friendship_accept'  r_request.id  %}">Accept</a></small>-->
+
+<form method="post" action="{% url 'friendship_accept'  r_request.id %}">
+{% csrf_token %}
+<input type="submit" value="accept" />
+</form>
+
+<form method="post" action="{% url 'friendship_reject'  r_request.id %}">
+{% csrf_token %}
+<input type="submit" value="reject" />
+</form>
+			<!--<small><a class='btn btn-warning' href="/friend/reject/{{ r_request.id }}">Ignore</a></small>-->
+		{% endfor %}
+
+
+{% endblock %}
+

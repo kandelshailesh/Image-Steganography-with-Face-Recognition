@@ -1,0 +1,131 @@
+
+{% extends 'chat/final.html' %}
+{% block friend %}
+<div  style=" position:relative; height:600px; top:-83px; background-color:#EEE; outline:1px solid #EEE;">
+        
+            <div class="prep-classes-contents">
+    <div id="here" class="container-fluid">
+       <!--  {% include "friendship/friend/testfirst.html" %} -->
+
+<div class="row prep-classes-tabs">
+            <div class="col-md-4 col-sm-4">
+                <ul class="nav nav-tabs nav-stacked" role="tablist" id="myTab">
+                    <li id="rr"><a data-toggle="tab" href="#received-requests">Received Friend Requests</a></li>
+                    <li id="sfr"><a data-toggle="tab" href="#sent-requests">Sent Friend Requests</a></li>
+                    <li style="width:200px;" id="fi"><a data-toggle="tab" href="#friends">Friends</a></li>
+                    <li id="op"><a data-toggle="tab" href="#other-people">Other People</a></li>
+                </ul>
+
+            </div>
+            <div  class="col-md-8 col-sm-8">
+ <div class="tab-content">
+
+                    <div id="received-requests" class="tab-pane" style="height:300px; overflow-y: scroll;">
+                        <ul class="classes">
+                            {% for r in f_r_r%}
+                            <li class="clearfix">
+                                <div class="classes-image pull-left">
+                                    <img src="default-user.png" alt="">
+                                </div>
+                                <div class="noti-details pull-left">
+                                    <div class="classes-details-title"><a href="{% url 'view_profile' r.from_user %}">{{r.from_user}}</a></div>
+                                    <div class="classes-details-text">Received Date: {{r.created}}</div>
+                                </div>
+                                <div class="noti-details-btns pull-right text-center">
+                                    <span><a href="{% url 'friendship_accept'  r.id %}"><button type="button"
+                                                                                                          class="btn btn-success">Accept Request</button></a></span>
+                                    <br>
+                                    <span><a href="{% url 'friendship_reject'  r.id %}"><button type="button"
+                                                                                                           class="btn btn-default">Reject Request</button></a></span>
+                                </div>
+                            </li>
+                            {% empty %}
+                            <li>Sorry, No received requests :)</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div id="sent-requests" class="tab-pane " style="height:300px; overflow-y: scroll;">
+                        <ul class="classes">
+                            {% for r in f_s_r %}
+                            <li class="clearfix">
+                                <div class="classes-image pull-left">
+                                    <img src="default-user.png" alt="">
+                                </div>
+                                <div class="noti-details pull-left">
+                                    <div class="classes-details-title"> <a href="{% url 'view_profile' r.to_user %}">{{r.to_user}}</a></div>
+                                    <div class="classes-details-text">Sent Date: {{r.created}}</div>
+                                    <div class="classes-details-text">Viewed:{{r.viewed}}</div>
+                                </div>
+                                <div class="noti-details-btns pull-right text-center">
+                                    <span><a href="{% url 'friendship_cancel'  r.id %}"><button type="button"
+                                                                                                           class="btn btn-warning">Cancel Request</button></a></span>
+                                </div>
+                            </li>
+                            {% empty %}
+                            <li> No requests sent :)</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div id="friends" class="tab-pane " style="height:300px; overflow-y: scroll;">
+                        <ul class="classes">
+                            {% for friend in friends%}
+                            <li class="clearfix">
+                                <div class="classes-image pull-left">
+                                    <img src="default-user.png" alt="">
+                                </div>
+                                <div class="noti-details pull-left">
+                                    <div class="classes-details-title"> <a href="{% url 'view_profile' friend.username %}">{{friend.username}}</a></div>
+                                </div>
+                                <div class="noti-details-btns pull-right text-center">
+                            <span><a href="{% url 'friendship_remove_friend'  friend.username %}"><button
+                                    type="button"
+                                    class="btn btn-danger">Remove Friend</button></a></span>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div id="other-people" class="tab-pane " style="height:300px; overflow-y: scroll;">
+                        <ul class="classes">
+                            {% for user in usering %}
+                            {% if user not in friends %}
+                            {% if user not in fsentu %}
+                            {% if user not in frecu %}
+                            <li class="clearfix">
+                                <div class="classes-image pull-left">
+                                    <img src="default-user.png" alt="">
+                                </div>
+                                <div class="noti-details pull-left">
+                                    <div class="classes-details-title"><a href="{% url 'view_profile' user.username %}">{{ user.username }}</a></div>
+
+                                </div>
+                                <div class="noti-details-btns pull-right text-center">
+
+                                    <span><a href="{% url 'friendship_add_friend' user.username %}"><button
+                                            type="button" class="btn btn-success"> Add Friend</button></a></span>
+
+                                </div>
+                            </li>
+
+                            {% endif %}
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    
+
+
+
+{% endblock %}

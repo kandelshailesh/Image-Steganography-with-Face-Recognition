@@ -1,0 +1,77 @@
+{% extends 'chat/final.html' %}
+{% block hide %}{% endblock %}
+{% block show %} {% endblock %}
+{% block shows %} {% endblock %}
+
+{% block messages %} 
+
+
+ <div class="row" style=" background-color:#EEE; outline:1px solid #EEE;">
+        <div style="background-color:#EEE; height:40px;" class="col-sm-7">
+            <label style="float:right; margin-right:10px; padding:10px; margin-left:320px; font-size: 20px; text-align:center;">{{ receiver.username }}</label>
+            <label id="enable"></label>
+            </div>
+            <div class="col-sm-5">
+            <div class="dropdown">
+    <button style="padding:10px; border:1px solid #EEE; float:right; background-color:#EEE;" class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+    <i style="color:black; margin-top:-5px;" class="glyphicon glyphicon-option-vertical"></i></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete Messages</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'view_profile' receiver.username %} ">View Profile </a></li>
+      <li role="presentation" class="divider"></li>
+    </ul>
+  </div>
+               
+        </div>
+    </div>
+<div class="chatlogs" style="margin-left:-15px;  border: 3px solid #EEE; border-bottom-color:#EEE; overflow-wrap: wrap; padding:5px; height:400px; overflow-x:hidden; overflow-y:scroll;">
+
+    {% for message in messages %}
+   
+     <div class="row">
+        <br>
+      {% if message.sender != request.user %}
+    {% load staticfiles %}
+    <div class="col-sm-6">
+    
+    {% if ".jpg" in message.message or ".jpeg" in message.message or ".png" in message.message %}
+
+        <img id="/static/second/{{message}}" src="/static/second/{{message}}" width=300px; height=300px; />
+        <button id="{{message}}" onclick="decoded(this.id)" style="display:hidden; width:50px; height:50px; border-radius:25px; background-color:#00ACE9; font-size:20px; color:black;">D</button> <br><br>
+    {% else %}
+    <script>console.log('Received');</script>
+
+    <div style="align-items:flex-start; padding:10px; overflow-wrap:break-word; border-radius: 5px; color:white; background-color:blue;">
+{{message}}</div> 
+    {% endif %}
+</div>
+<div class="col-sm-6"></div>
+   {% else %}
+    <div class="col-sm-6">
+    </div>
+    {% load staticfiles %}
+    <div class="col-sm-6">
+    {% if ".jpg" in message.message or ".png" in message.message %}
+    <img  style="order:-1;" id="/static/second/{{message}}" src="/static/second/{{message}}" width=300px; height=300px; />
+        <button id="{{message}}" onclick="decoded(this.id)" style=" width:50px; height:50px; border-radius:25px; background-color:#00ACE9; font-size:20px; color:black;">D</button>
+    <br>
+    {% else %}
+   <div style=" padding:10px; color: black; overflow-wrap:break-word; border-radius: 5px;  background-color: #EEE;">
+    {{ message }}</div>
+ 
+    {% endif %}
+     
+    </div>
+    {% endif %}
+    </div>
+    {% endfor %}
+</div>
+<script>
+
+$(function () {
+    $('#user{{ receiver.id }}').addClass('active');
+// //     //Call receive function each 1 seconds to check for new messages in the database
+    setInterval(receive,1000);
+});
+</script> 
+{% endblock %}

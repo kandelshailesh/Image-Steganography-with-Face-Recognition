@@ -1,0 +1,95 @@
+{% extends 'chat/final.html' %}
+ {% load staticfiles %} 
+
+{% block profile %}
+
+
+
+<!-- <div > -->
+
+<title>{% block title %} Covert |{{ userr.get_full_name }} {% endblock %}</title>
+
+{% if request.user.username == userr.username %}
+
+<div class="row no-gutters">
+	<div class="col-12 card">
+		<div class="card img-responsive d-block d-inline-block" style="position: relative; height: 400px; width: 100%;">
+			
+			<img class="card-img rounded mx-auto" style="width:100%; height:350px;" src="{{ userr.profile.cover_pic.url }}">
+
+			<div class="card img-responsive d-block w-25 border border-light p-1" style=" width:40px; position:absolute; top:168px; left:15px;">
+				
+				<img class="card-img rounded mx-auto" style="width:100%; padding: 3px; height:200px;" src="{{ userr.profile.profile_pic.url }}">		
+			</div>
+
+			<div class="" style="position: absolute; bottom: 65px; left:245px; font-family: 'Fondamento', cursive; font-size: 35px; font-weight: 500; color:white;">
+				{{ userr.get_full_name }} 
+			</div>
+
+			<div class="btn-group" style="position:absolute; left:245px; top:350px; width:75%; height:49px; padding:2px;">
+				<a href="{% url 'editProfile' %}" class="btn btn-light" role = "button">Profile Edit</a>
+				<a href="{% url 'change_password' %}" class="btn btn-light" role = "button">Change Password</a>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+{% else %}
+<div class="row no-gutters">
+	<div class="col-12 card">
+		<div class="card img-responsive d-block d-inline-block" style="position: relative; height: 400px; width: 100%;">
+			
+			<img class="card-img rounded mx-auto" style="width:100%; height:350px;" src="{{ userr.profile.cover_pic.url }}">
+
+			<div class="card img-responsive d-block w-25 border border-light p-1" style=" width:40px; position:absolute; top:168px; left:15px;">
+				
+				<img class="card-img rounded mx-auto" style="width:100%; padding: 3px; height:200px;" src="{{ userr.profile.profile_pic.url }}">		
+			</div>
+
+			<div class="" style="position: absolute; bottom: 65px; left:245px; font-family: 'Fondamento', cursive; font-size: 35px; font-weight: 500; color:white;">
+				{{ userr.get_full_name }} 
+			</div>
+
+			<div class="btn-group" style="position:absolute; left:245px; top:350px; width:75%; height:49px; padding:2px;">
+				<!-- <a href="{% url 'editProfile' %}" class="btn btn-light" role = "button">Profile Edit</a> -->
+				<a href="" class="btn btn-light" role = "button">Friends</a>
+				{% for i in asafriend %}
+				{% if i == 0 %} 
+				<a href="{% url 'friendship_add_friend' userr.username %}" class="btn btn-light" role = "button"> Add Friend</a>
+				{% else %}
+				<a href="{% url 'friendship_remove_friend'  userr.username %}" class="btn btn-light" role = "button">UnFriend</a>
+				{% endif %}
+				{% endfor %}
+				<a href="{% url 'chat' userr.id %}" class="btn btn-light" role = "button">Message</a>
+				<!-- <a href="{% url 'change_password' %}" class="btn btn-light" role = "button">Change Password</a> -->
+			</div>
+
+		</div>
+
+	</div>
+</div>
+{% endif %}
+
+<div class="row no-gutters">
+	<div class="card col-4 mt-3 mb-2 p-2" >
+		<ul style="list-style:none;">
+			<!--li>Username: {{ user.username }}</li-->
+			<li>Username: {{ userr.username }} </li>
+			<li>Bio: {{ userr.profile.bio }}</li>
+			<li>Location: {{ userr.profile.location }}</li>
+			<li>Birth Date: {{ userr.profile.birth_date }}</li>
+			<!--li><img src="{{ user.profile.profile_pic.url }}"></li-->
+		</ul>
+	</div>
+
+	<!-- <div class="card col-3 mt-3 mb-2 p-2">
+		<ul style="list-style:none;">
+			<li>Username: {{ userr.profile.bio }}</li>
+			<li>Location: {{ userr.profile.location }}</li>
+			<li>Birth Date: {{ userr.profile.birth_date }}</li>
+		</ul>
+	</div> -->
+</div>
+
+{% endblock %}

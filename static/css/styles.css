@@ -1,0 +1,10 @@
+h2 {
+	font-family: 'Pacifico', cursive;
+	color: palegoldenrod;
+}
+
+.nav-link {
+	color:#fff !important;
+	cursor: pointer;
+	font-family: 'Raleway', sans-serif;
+}

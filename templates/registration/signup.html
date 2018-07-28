@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container bg-faded">
+    <div class="row">
+      <div class="col-5 mx-auto ">
+        <div class="card card-body mt-5 border border-dark bg-light">
+          <form method="post">
+            {% csrf_token %}
+             <div class="form-group">
+              <h1 class="text-center mt-auto">SIGNUP</h1>
+              
+              {% for field in form %}
+              <label>{{ field.label_tag }}</label>
+
+              <!--input class="form-control" id="{{ field.id_for_label }}" maxlength="30" name="{{ field.html_name }}" type="text" /--> 
+              
+              <input class="form-control" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="id_{{ field.name }}" >
+
+              {% for error in field.errors %}
+                      <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+
+                    {% endfor %}
+
+                </div>
+                
+                <button class="btn btn-outline-info mx-auto" type="submit">Sign Up</button>
+                <a  href="{% url 'login' %}">Already have account ? Login</a>
+              </form> 
+            </div>  
+        </div>
+    </div>
+</div>
+
+{% endblock %}
