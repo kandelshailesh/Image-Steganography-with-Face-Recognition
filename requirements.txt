@@ -4,5 +4,4 @@ djangorestframework==3.7.3
 pytz==2017.3
 numpy==1.15.0
 pillow
-django_heroku
 
